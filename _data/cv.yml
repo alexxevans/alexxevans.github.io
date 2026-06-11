@@ -1,189 +1,139 @@
 cv:
-  name: Albert Einstein
-  label: Scientist
-  email: einstein@example.com
-  location: Princeton, NJ
+  name: Alex Evans
+  label: Generative AI for the Physical Sciences
+  email: a_ev.ans@icloud.com
+  phone: "+44 7304 097343"
+  location: Oxford, OX2 6TX
   image: ""
-  summary: A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time
+  summary: >
+    DPhil candidate in Materials at the University of Oxford working on generative
+    models for the de novo design of virus-like particles. Background in machine
+    learning for the physical sciences and metrology, with experience applying
+    diffusion, normalising flows and Bayesian methods across physics, climate and
+    autonomy projects.
 
   social_networks:
-    - network: X
-      username: AlbertEinstein
-    - network: GitHub
-      username: example
     - network: LinkedIn
-      username: example
-
-  address:
-    street: 2712 Broadway St
-    city: San Francisco
-    region: California
-    postalCode: CA 94115
-    countryCode: US
+      username: Alex Evans
+    - network: GitHub
+      username: alexxevans
 
   sections:
     Education:
-      - institution: University of Zurich
-        location: Zurich, Switzerland
-        url: https://www.uzh.ch/
-        area: Physics
-        studyType: PhD
-        start_date: 1900
-        end_date: 1905
-        score: ""
-        courses: "Theory of Relativity"
+      - institution: University of Oxford
+        location: Oxford, UK
+        url: https://www.ox.ac.uk/
+        area: Materials
+        studyType: DPhil
+        start_date: 2025-10
+        end_date: present
         highlights:
-          - Description 1.
-          - Description 2.
+          - "Research: projection and energy-guided sampling for the de novo design of virus-like particles."
 
-      - institution: Eidgenössische Technische Hochschule
-        location: Zurich, Switzerland
-        area: Physics
-        studyType: Federal teaching diploma
-        start_date: 1896
-        end_date: 1900
+      - institution: Imperial College London
+        location: London, UK
+        url: https://www.imperial.ac.uk/
+        area: Machine Learning in the Physical Sciences
+        studyType: MRes (Distinction)
+        start_date: 2023-10
+        end_date: 2024-10
         highlights:
-          - Description 1.
-          - Description 2.
+          - "Research: diffusion and flow-based techniques for modelling quantum apparatus used in dark matter and gravitational wave research."
+          - "Top-3 final grade in cohort; rank 1 in Statistics for Experimental Physics."
+
+      - institution: University of Birmingham
+        location: Birmingham, UK
+        url: https://www.birmingham.ac.uk/
+        area: Mechanical Engineering
+        studyType: BEng (Upper Second, 2:1)
+        start_date: 2016-10
+        end_date: 2020-06
+
+    Research:
+      - name: AI-Driven European Space Agency Satellite Retrieval (TRUTHS)
+        start_date: 2024-06
+        end_date: 2025-10
+        summary: National Physical Laboratory (NPL)
+        highlights:
+          - "Developed a generative AI model for the ESA TRUTHS mission, calibrating the satellite's onboard Hyperspectral Imaging Spectrometer (HIS) to retrieve solar irradiance from thermal readings."
+          - "Modelled the encoded posterior with a continuous-time diffusion model and transformer conditioning, enabling reliable uncertainty quantification. Key libraries: JAX."
+
+      - name: Generative AI for Cold Atom Interferometry (AION)
+        start_date: 2023-11
+        end_date: 2024-10
+        summary: Imperial College London
+        highlights:
+          - "Modelled quantum apparatus for AION (Atom Interferometer Observatory and Network), enabling Bayesian inference for optimal cooling parameters."
+          - "Ran 2^19 atomic simulations on the Imperial HPC (~22 years of compute across 500 concurrent instances)."
+          - "Applied normalising flows and diffusion to generate cooled atoms, indistinguishable from ground truth to a random forest classifier; developed novel anti-overfitting techniques for both."
+          - "Key libraries: JAX, PyTorch, HyperOpt, XGBoost."
+
+      - name: Inverse Problems in Medical Imaging with Diffusion
+        start_date: 2023-11
+        end_date: 2024-04
+        summary: Imperial College London
+        highlights:
+          - "Literature review on diffusion and novel samplers for denoising medical images; awarded the highest grade in the cohort."
+          - "Covered score matching through DDPMs to novel Tweedie-based samplers for inverse problems."
+
+      - name: AI for Autonomous Marine Vessels
+        start_date: 2024-01
+        end_date: 2024-06
+        summary: National Physical Laboratory (NPL) / UK Hydrographic Office
+        highlights:
+          - "Built a machine-interpretable model of the S100 series of navigational charts for autonomous vessels."
+          - "Developed an LLM workflow translating chart tags into machine-readable XML, validated against an XSD schema. Key libraries: Ollama."
 
     Experience:
-      - company: Institute for Advanced Study, Princeton University
-        position: Professor of Theoretical Physics
-        location: Princeton University, NJ
-        start_date: 1933
-        end_date: 1955
-        summary: Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.
+      - company: National Physical Laboratory (NPL)
+        position: Scientist
+        location: Teddington, London
+        start_date: 2024-01
+        end_date: 2025-10
         highlights:
-          - Relativity
-          - Description 2.
+          - "Earth Observation & Climate group: built a generative AI model for the ESA TRUTHS mission to observe climate-change mitigation strategies."
+          - "Informatics group: assured HADO (autonomous security drones at Heathrow) and MAAT (Maritime Autonomy Assurance Testbed)."
 
-      - company: California Institute of Technology
-        position: Visiting Professor
-        location: Pasadena, California, US
-        start_date: 1933
-        end_date: 1933
+      - company: National Physical Laboratory (NPL)
+        position: Data Analyst
+        location: Teddington, London
+        start_date: 2021-11
+        end_date: 2024-01
         highlights:
-          - Description 1.
-          - Description 2.
-
-      - company: Kaiser Wilhelm Institute for Physics
-        position: Director
-        location: Berlin, Germany
-        start_date: 1917
-        end_date: 1933
-
-      - company: Karl-Ferdinand University
-        position: Professor of Theoretical Physics
-        location: Prague, Czechoslovakia
-        start_date: 1911
-        end_date: 1917
-
-      - company: University of Zurich
-        position: Associate Professor of Theoretical Physics
-        location: Zurich, Switzerland
-        start_date: 1909
-        end_date: 1911
-
-    Volunteer:
-      - company: People's Climate March
-        position: Lead Organizer
-        location: Zurich, Switzerland
-        start_date: 2014-04-01
-        end_date: 2015-07-01
-        summary: Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.
-        highlights:
-          - "Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march."
-          - "Men of the year 2014 by Time magazine"
+          - "Built Azure cloud pipelines for a unified organisation-wide SQL database, significantly improving reporting capability and quality."
 
     Awards:
-      - title: Nobel Prize in Physics
-        authors:
-          - "Royal Swedish Academy of Sciences"
-        date: 1921-11-01
-        awarder: Royal Swedish Academy of Sciences
-        url: https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/
-        summary: The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'
+      - title: STEM for Britain Finalist
+        awarder: Department for Science, Innovation and Technology
+        date: 2025-03
+        summary: Selected as a finalist for STEM for Britain 2025, presenting research at the UK Parliament to MPs and judges from academia.
 
-      - title: Max Planck Medal
-        authors:
-          - "German Physical Society"
-        date: 2029
-        awarder: German Physical Society
-        summary: Awarded for outstanding scientific achievement
+      - title: Academic Achievement
+        awarder: Imperial College London
+        date: 2024-10
+        summary: Top-3 final grade in cohort; rank 1 in Statistics for Experimental Physics and in the self-study project on score-matching and diffusion in medical imaging.
 
-    Publications:
-      - title: Zur Elektrodynamik bewegter Körper
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-06-30
-        url: https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies
-        summary: It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source.
+    Presentations:
+      - title: Generative AI for Cold Atom Interferometry — STEM for Britain
+        awarder: UK Parliament
+        date: 2025-03
+        summary: Presented a poster at Parliament to MPs and judges from academia.
 
-      - title: Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1905-03-18
-        url: https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt
-        summary: In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921.
+      - title: Generative AI for Cold Atom Interferometry — RAEng Africa Prize
+        awarder: National Physical Laboratory (NPL)
+        date: 2025-03
+        summary: Presented to RAEng Africa Prize nominees visiting NPL.
 
-      - title: Die Grundlage der allgemeinen Relativitätstheorie
-        authors:
-          - Albert Einstein
-        publisher: Annalen der Physik
-        releaseDate: 1916-03-20
-        url: https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie
-        summary: The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914).
+      - title: Science and Technology Advisory Council (STAC)
+        awarder: National Physical Laboratory (NPL)
+        date: 2025-06
+        summary: Presented poster from Parliament to STAC.
 
     Skills:
-      - name: Physics
-        level: Master
-        icon: fa-solid fa-hashtag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
+      - name: Techniques
+        icon: fa-solid fa-brain
+        keywords: "Diffusion Models, Normalising Flows, Bayesian Optimisation & Inference, Deep Neural Networks, Large Language Models"
 
-    Languages:
-      - name: German
-        summary: "Native speaker"
-
-      - name: English
-        summary: "Fluent"
-
-    Interests:
-      - name: Physics
-        icon: fa-solid fa-tag
-        keywords: "Quantum Mechanics, Quantum Computing, Quantum Information, Quantum Cryptography, Quantum Communication, Quantum Teleportation"
-
-    Certificates:
-      - name: Machine Learning
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-location-dot
-
-      - name: Quantum Computing
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-tag
-
-      - name: Quantum Information
-        date: 2018-01-01
-        issuer: Stanford University
-        icon: fa-solid fa-envelope
-
-    Projects:
-      - name: Quantum Computing
-        summary: Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.
-        highlights:
-          - Quantum Teleportation
-          - Quantum Cryptography
-        start_date: 2018-01-01
-        end_date: 2018-01-01
-
-    References:
-      - name: Professor John Doe
-        icon: fa-solid fa-laptop
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
-
-      - name: Professor Jane Smith
-        icon: fa-solid fa-thumbtack
-        reference: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit.
+      - name: Libraries & Tools
+        icon: fa-solid fa-code
+        keywords: "JAX, PyTorch, HyperOpt, XGBoost, Ollama, Azure, SQL"
