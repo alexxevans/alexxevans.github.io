@@ -1,0 +1,71 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+/* Built-in Sass modules you’ll likely use across partials */
+@use "sass:math";
+@use "sass:string";
+
+/* Configure your design tokens BEFORE loading any of your partials.
+   Make sure `_sass/_variables.scss` declares `$max-content-width: 72rem !default;` */
+@use "variables" with (
+  $max-content-width: {{ site.max_width | default:  "930px" }}
+);
+
+/* Your project partials — convert these files to `@use "variables";`
+   (or `@use "variables" as *;`) inside each file and qualify variables if needed. */
+@use "themes";
+@use "layout";
+
+// Core styles organized by usage
+@use "typography";
+@use "navbar";
+@use "footer";
+@use "blog";
+@use "publications";
+@use "components";
+@use "utilities";
+
+// Other specialized styles
+@use "tabs";
+@use "teachings";
+@use "typograms";
+
+/* ----------------------------------------------------------------------------
+   Custom (site override): gradient scroll progress bar
+   Loaded last, so these win over the gem's solid `--global-theme-color` fill.
+   Tweak the gradient stops below to taste.
+   ------------------------------------------------------------------------- */
+$al-progress-gradient: linear-gradient(
+  90deg,
+  #0a0e24 0%,
+  #221350 26%,
+  #432063 48%,
+  #5e1f3e 72%,
+  #4a0f18 100%
+);
+
+/* `background-size: 100vw` anchors the full gradient to the viewport so the
+   bar reveals more of it as you scroll, ending on the complete gradient. */
+progress[id="progress"]::-webkit-progress-value {
+  background-color: transparent;
+  background-image: $al-progress-gradient;
+  background-size: 100vw 100%;
+  background-repeat: no-repeat;
+}
+
+progress[id="progress"]::-moz-progress-bar {
+  background-color: transparent;
+  background-image: $al-progress-gradient;
+  background-size: 100vw 100%;
+  background-repeat: no-repeat;
+}
+
+/* Fallback bar for browsers without native <progress> support */
+.progress-bar {
+  background-color: transparent;
+  background-image: $al-progress-gradient;
+  background-size: 100vw 100%;
+  background-repeat: no-repeat;
+}
