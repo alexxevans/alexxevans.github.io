@@ -272,7 +272,7 @@ html:has(#alex-home) {
   left: 0;
   right: 0;
   bottom: 0;
-  height: 3px;
+  height: 1px;
   background: linear-gradient(
     90deg,
     #3b82f6 0%,
@@ -291,16 +291,10 @@ html:has(#alex-home) {
   max-width: var(--max-content-width, 930px);
   margin: 0 auto;
   height: var(--topbar-h);
-  padding: 0; /* no side padding, so nav aligns with the 930px content box */
+  padding: 0 10px 0 0; /* nudge the nav ~10px left of the content edge */
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-.topbar-name {
-  font-weight: 700;
-  font-size: 1.05rem;
-  color: var(--global-text-color);
-  text-decoration: none;
+  justify-content: flex-end;
 }
 /* unified nav used in BOTH the hero and the sticky bar: plain text links (no
    outline), identical in each place, so they line up and appear to collapse

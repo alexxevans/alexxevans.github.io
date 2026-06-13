@@ -16,7 +16,6 @@ latest_posts:
 
 <div id="topbar" class="topbar">
   <div class="topbar-inner">
-    <a href="#top" class="topbar-name">Alex Evans</a>
     <nav class="navlinks">
       <a href="#bio">Bio</a>
       <a href="#vitae">Vitæ</a>
