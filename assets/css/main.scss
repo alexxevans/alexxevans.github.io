@@ -69,3 +69,20 @@ progress[id="progress"]::-moz-progress-bar {
   background-size: 100vw 100%;
   background-repeat: no-repeat;
 }
+
+/* ----------------------------------------------------------------------------
+   Link / accent colors sampled from the progress-bar gradient.
+   These redefine the theme's accent token, so links, icon hovers and active
+   nav items all pick them up — keeping the light/dark distinction.
+     - Light pages: magenta from the purple->pink span of the gradient
+     - Dark pages:  blue from the cool start of the gradient
+   ------------------------------------------------------------------------- */
+:root {
+  --global-theme-color: #c026d3;
+  --global-hover-color: #c026d3;
+}
+
+html[data-theme="dark"] {
+  --global-theme-color: #3b82f6;
+  --global-hover-color: #3b82f6;
+}
