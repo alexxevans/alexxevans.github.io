@@ -82,12 +82,14 @@ progress[id="progress"]::-moz-progress-bar {
   --global-hover-color: #2e7e46;
   --global-bg-color: #f3f2ed; /* slightly off-white, retro paper tone (a touch cooler) */
   --timeline-line: #2e7e46;
+  --link-color: #4a6ec9; /* SNES blue from the gradient — used for hyperlinks */
 }
 
 html[data-theme="dark"] {
   --global-theme-color: #54bf70; /* vivid SNES green for dark backgrounds */
   --global-hover-color: #54bf70;
   --timeline-line: #54bf70;
+  --link-color: #7c9bf0; /* SNES blue, lifted for dark backgrounds */
 }
 
 /* ----------------------------------------------------------------------------
@@ -420,10 +422,19 @@ html[data-theme-setting="light"] {
 #alex-home .cv-download {
   margin: -0.4rem 0 1.4rem;
 }
+/* hyperlinks in the content (CV download, bio links) stay blue, separate from
+   the green accent used for dots/line/nav */
+#alex-home .home-section a {
+  color: var(--link-color);
+}
+#alex-home .home-section a:hover {
+  color: var(--link-color);
+  text-decoration: underline;
+}
 #alex-home .cv-download a {
   font-weight: 600;
   font-size: 0.95rem;
-  color: var(--global-theme-color);
+  color: var(--link-color);
   text-decoration: none;
 }
 #alex-home .cv-download a:hover {

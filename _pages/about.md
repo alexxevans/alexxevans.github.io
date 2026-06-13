@@ -32,11 +32,12 @@ latest_posts:
   <img class="hero-photo" src="/assets/img/profile_pic.jpeg" alt="Alex Evans">
   <div class="hero-body">
     <h1 class="hero-name">Alex Evans</h1>
-    <p class="hero-tagline">DPhil candidate in Materials, University of Oxford — generative AI for the physical sciences.</p>
-    <p class="hero-contact">a_ev.ans@icloud.com</p>
+    <p class="hero-tagline">DPhil candidate in Materials, University of Oxford</p>
+    <p class="hero-contact">alexander.evans@reuben.ox.ac.uk</p>
     <div class="hero-socials">
-      <a href="mailto:a_ev.ans@icloud.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="mailto:alexander.evans@reuben.ox.ac.uk" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://github.com/alexxevans" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/alex-evans-84b1881a5/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
     </div>
   </div>
 </header>
@@ -63,7 +64,7 @@ latest_posts:
       <div class="timeline-content">
         <div class="timeline-date">2024 — 2025</div>
         <div class="timeline-title">National Physical Laboratory</div>
-        <div class="timeline-detail">Scientist · TRUTHS / ESA satellite calibration</div>
+        <div class="timeline-detail">Scientist · Data Science Division</div>
       </div>
     </div>
     <div class="timeline-item">
