@@ -81,11 +81,13 @@ progress[id="progress"]::-moz-progress-bar {
   --global-theme-color: #c026d3;
   --global-hover-color: #c026d3;
   --global-bg-color: #f3f2ed; /* slightly off-white, retro paper tone (a touch cooler) */
+  --timeline-line: #3b82f6; /* opposite of the accent (dots); swaps in dark mode */
 }
 
 html[data-theme="dark"] {
   --global-theme-color: #3b82f6;
   --global-hover-color: #3b82f6;
+  --timeline-line: #c026d3;
 }
 
 /* ----------------------------------------------------------------------------
@@ -108,7 +110,7 @@ html[data-theme="dark"] {
   padding: 0;
 }
 
-/* central line — same gradient as the scroll progress bar */
+/* central line — solid, the opposite accent colour from the dots */
 .timeline::before {
   content: "";
   position: absolute;
@@ -118,14 +120,7 @@ html[data-theme="dark"] {
   width: 3px;
   margin-left: -1.5px;
   border-radius: 3px;
-  background: linear-gradient(
-    180deg,
-    #3b82f6 0%,
-    #6366f1 25%,
-    #a855f7 50%,
-    #ec4899 75%,
-    #ef4444 100%
-  );
+  background: var(--timeline-line);
 }
 
 .timeline-item {
