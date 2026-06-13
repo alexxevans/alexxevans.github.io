@@ -297,12 +297,11 @@ html:has(#alex-home) {
   font-weight: 600;
   font-size: 0.95rem;
   line-height: 1;
-  color: var(--link-color); /* top nav links are blue */
+  color: var(--global-text-color);
   text-decoration: none;
 }
 #alex-home .navlinks a:hover {
-  color: var(--link-color);
-  text-decoration: underline;
+  color: var(--link-color); /* blue only on hover */
 }
 /* the light/dark toggle: plain inline icon, no outline, same row as the links */
 #alex-home .navlinks .theme-toggle {
@@ -327,7 +326,7 @@ html:has(#alex-home) {
   text-align: center;
 }
 #alex-home .navlinks .theme-toggle:hover {
-  color: var(--global-theme-color);
+  color: var(--link-color); /* blue on hover, matching the links */
 }
 
 /* hero */
