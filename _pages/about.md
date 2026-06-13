@@ -17,14 +17,14 @@ latest_posts:
 <div id="topbar" class="topbar">
   <div class="topbar-inner">
     <a href="#top" class="topbar-name">Alex Evans</a>
-    <nav class="topbar-nav">
+    <nav class="navlinks">
       <a href="#about">About</a>
       <a href="#vitae">Vitæ</a>
-      <a class="topbar-cv" href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV</a>
-      <button type="button" class="topbar-toggle" title="Change theme" aria-label="Change color theme">
-        <i class="fa-half-sun-moon" id="home-toggle-system"></i>
-        <i class="fa-solid fa-moon" id="home-toggle-dark"></i>
-        <i class="fa-solid fa-sun" id="home-toggle-light"></i>
+      <a href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
+        <i class="fa-half-sun-moon toggle-system"></i>
+        <i class="fa-solid fa-moon toggle-dark"></i>
+        <i class="fa-solid fa-sun toggle-light"></i>
       </button>
     </nav>
   </div>
@@ -40,10 +40,15 @@ latest_posts:
       <a href="mailto:a_ev.ans@icloud.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://github.com/alexxevans" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
     </div>
-    <nav class="hero-nav">
+    <nav class="navlinks">
       <a href="#about">About</a>
       <a href="#vitae">Vitæ</a>
-      <a class="hero-cv" href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      <a href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+      <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
+        <i class="fa-half-sun-moon toggle-system"></i>
+        <i class="fa-solid fa-moon toggle-dark"></i>
+        <i class="fa-solid fa-sun toggle-light"></i>
+      </button>
     </nav>
   </div>
 </header>
@@ -121,10 +126,11 @@ latest_posts:
     window.addEventListener("resize", onScroll);
     onScroll();
 
-    // Wire the dark-mode button to al-folio's theme toggle (defined in theme.js).
-    var toggle = document.querySelector("#alex-home .topbar-toggle");
-    if (toggle && typeof toggleThemeSetting === "function") {
-      toggle.addEventListener("click", toggleThemeSetting);
+    // Wire both theme toggles (hero + top bar) to al-folio's theme cycle (theme.js).
+    if (typeof toggleThemeSetting === "function") {
+      document.querySelectorAll("#alex-home .theme-toggle").forEach(function (btn) {
+        btn.addEventListener("click", toggleThemeSetting);
+      });
     }
   })();
 </script>

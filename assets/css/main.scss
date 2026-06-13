@@ -282,24 +282,45 @@ html:has(#alex-home) {
   color: var(--global-text-color);
   text-decoration: none;
 }
-.topbar-nav {
+/* unified nav used in BOTH the hero and the sticky bar, so the buttons look
+   identical and appear to collapse onto the bar as you scroll */
+#alex-home .navlinks {
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 0.6rem;
+  flex-wrap: wrap;
 }
-.topbar-nav a,
-.topbar-toggle {
+#alex-home .navlinks a {
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1.2;
   color: var(--global-text-color);
   text-decoration: none;
-  font-size: 0.95rem;
+}
+#alex-home .navlinks a:hover {
+  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+/* the light/dark toggle: borderless icon button, same row as the links */
+#alex-home .navlinks .theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
   background: none;
   border: none;
-  padding: 0;
-  cursor: pointer;
+  border-radius: 8px;
+  font-size: 1.05rem;
   line-height: 1;
+  cursor: pointer;
+  color: var(--global-text-color);
 }
-.topbar-nav a:hover,
-.topbar-toggle:hover {
+#alex-home .navlinks .theme-toggle:hover {
   color: var(--global-theme-color);
 }
 
@@ -350,25 +371,6 @@ html:has(#alex-home) {
 #alex-home .hero-socials a:hover {
   color: var(--global-theme-color);
 }
-#alex-home .hero-nav {
-  display: flex;
-  gap: 0.7rem;
-  flex-wrap: wrap;
-}
-#alex-home .hero-nav a {
-  padding: 0.4rem 0.95rem;
-  border: 1px solid var(--global-divider-color);
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--global-text-color);
-  text-decoration: none;
-}
-#alex-home .hero-nav a:hover {
-  border-color: var(--global-theme-color);
-  color: var(--global-theme-color);
-}
-
 /* sections */
 #alex-home .home-section {
   padding: 2.25rem 0 0.5rem;
@@ -376,34 +378,35 @@ html:has(#alex-home) {
   scroll-margin-top: 4.5rem; /* so anchor jumps clear the sticky bar */
 }
 
-/* three-state theme icon in the custom bar (system / light / dark),
-   mirroring al-folio's #light-toggle behavior via [data-theme-setting] */
-#home-toggle-dark,
-#home-toggle-light {
+/* three-state theme icon (system / light / dark), mirroring al-folio's
+   #light-toggle behavior via [data-theme-setting]; class-based so BOTH the
+   hero and top-bar toggles update together */
+.toggle-dark,
+.toggle-light {
   display: none;
 }
-#home-toggle-system {
+.toggle-system {
   display: inline-block;
 }
 html[data-theme-setting="dark"] {
-  #home-toggle-system {
+  .toggle-system {
     display: none;
   }
-  #home-toggle-dark {
+  .toggle-dark {
     display: inline-block;
   }
-  #home-toggle-light {
+  .toggle-light {
     display: none;
   }
 }
 html[data-theme-setting="light"] {
-  #home-toggle-system {
+  .toggle-system {
     display: none;
   }
-  #home-toggle-dark {
+  .toggle-dark {
     display: none;
   }
-  #home-toggle-light {
+  .toggle-light {
     display: inline-block;
   }
 }
@@ -424,7 +427,7 @@ html[data-theme-setting="light"] {
   #alex-home .hero-name {
     font-size: 2rem;
   }
-  .topbar-nav {
-    gap: 0.9rem;
+  #alex-home .navlinks {
+    gap: 0.5rem;
   }
 }
