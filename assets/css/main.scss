@@ -78,8 +78,8 @@ progress[id="progress"]::-moz-progress-bar {
      - Dark pages:  magenta from the purple->pink span of the gradient
    ------------------------------------------------------------------------- */
 :root {
-  --global-theme-color: #c026d3;
-  --global-hover-color: #c026d3;
+  --global-theme-color: #ef4444;
+  --global-hover-color: #ef4444;
   --global-bg-color: #f3f2ed; /* slightly off-white, retro paper tone (a touch cooler) */
   --timeline-line: #3b82f6; /* opposite of the accent (dots); swaps in dark mode */
 }
@@ -87,7 +87,7 @@ progress[id="progress"]::-moz-progress-bar {
 html[data-theme="dark"] {
   --global-theme-color: #3b82f6;
   --global-hover-color: #3b82f6;
-  --timeline-line: #c026d3;
+  --timeline-line: #ef4444;
 }
 
 /* ----------------------------------------------------------------------------
