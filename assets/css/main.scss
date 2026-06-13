@@ -78,16 +78,16 @@ progress[id="progress"]::-moz-progress-bar {
      - Dark pages:  magenta from the purple->pink span of the gradient
    ------------------------------------------------------------------------- */
 :root {
-  --global-theme-color: #4a6ec9; /* SNES blue — bright but a touch matte */
-  --global-hover-color: #4a6ec9;
+  --global-theme-color: #2e7e46; /* SNES green, deepened for the cream bg */
+  --global-hover-color: #2e7e46;
   --global-bg-color: #f3f2ed; /* slightly off-white, retro paper tone (a touch cooler) */
-  --timeline-line: #4a6ec9;
+  --timeline-line: #2e7e46;
 }
 
 html[data-theme="dark"] {
-  --global-theme-color: #5a82ec; /* vivid SNES blue for dark backgrounds */
-  --global-hover-color: #5a82ec;
-  --timeline-line: #5a82ec;
+  --global-theme-color: #54bf70; /* vivid SNES green for dark backgrounds */
+  --global-hover-color: #54bf70;
+  --timeline-line: #54bf70;
 }
 
 /* ----------------------------------------------------------------------------
