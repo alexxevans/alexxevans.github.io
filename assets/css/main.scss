@@ -371,8 +371,41 @@ html:has(#alex-home) {
 
 /* sections */
 #alex-home .home-section {
-  padding: 2rem 0 0.5rem;
+  padding: 2.25rem 0 0.5rem;
+  border-top: 1px solid var(--global-divider-color); /* faint divider between sections */
   scroll-margin-top: 4.5rem; /* so anchor jumps clear the sticky bar */
+}
+
+/* three-state theme icon in the custom bar (system / light / dark),
+   mirroring al-folio's #light-toggle behavior via [data-theme-setting] */
+#home-toggle-dark,
+#home-toggle-light {
+  display: none;
+}
+#home-toggle-system {
+  display: inline-block;
+}
+html[data-theme-setting="dark"] {
+  #home-toggle-system {
+    display: none;
+  }
+  #home-toggle-dark {
+    display: inline-block;
+  }
+  #home-toggle-light {
+    display: none;
+  }
+}
+html[data-theme-setting="light"] {
+  #home-toggle-system {
+    display: none;
+  }
+  #home-toggle-dark {
+    display: none;
+  }
+  #home-toggle-light {
+    display: inline-block;
+  }
 }
 #alex-home .home-section > h2 {
   margin-bottom: 1.1rem;

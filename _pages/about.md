@@ -21,7 +21,11 @@ latest_posts:
       <a href="#about">About</a>
       <a href="#vitae">Vitæ</a>
       <a class="topbar-cv" href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV</a>
-      <button type="button" class="topbar-toggle" aria-label="Toggle dark mode"><i class="fa-solid fa-circle-half-stroke"></i></button>
+      <button type="button" class="topbar-toggle" title="Change theme" aria-label="Change color theme">
+        <i class="fa-half-sun-moon" id="home-toggle-system"></i>
+        <i class="fa-solid fa-moon" id="home-toggle-dark"></i>
+        <i class="fa-solid fa-sun" id="home-toggle-light"></i>
+      </button>
     </nav>
   </div>
 </div>
