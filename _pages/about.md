@@ -33,23 +33,25 @@ latest_posts:
 <header id="top" class="hero">
   <img class="hero-photo" src="/assets/img/profile_pic.jpeg" alt="Alex Evans">
   <div class="hero-body">
-    <h1 class="hero-name">Alex Evans</h1>
+    <div class="hero-topline">
+      <h1 class="hero-name">Alex Evans</h1>
+      <nav class="navlinks">
+        <a href="#about">About</a>
+        <a href="#vitae">Vitæ</a>
+        <a href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+        <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
+          <i class="fa-half-sun-moon toggle-system"></i>
+          <i class="fa-solid fa-moon toggle-dark"></i>
+          <i class="fa-solid fa-sun toggle-light"></i>
+        </button>
+      </nav>
+    </div>
     <p class="hero-tagline">DPhil candidate in Materials, University of Oxford — generative AI for the physical sciences.</p>
     <p class="hero-contact">a_ev.ans@icloud.com</p>
     <div class="hero-socials">
       <a href="mailto:a_ev.ans@icloud.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://github.com/alexxevans" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
     </div>
-    <nav class="navlinks">
-      <a href="#about">About</a>
-      <a href="#vitae">Vitæ</a>
-      <a href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
-      <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
-        <i class="fa-half-sun-moon toggle-system"></i>
-        <i class="fa-solid fa-moon toggle-dark"></i>
-        <i class="fa-solid fa-sun toggle-light"></i>
-      </button>
-    </nav>
   </div>
 </header>
 
