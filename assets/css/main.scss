@@ -81,14 +81,14 @@ progress[id="progress"]::-moz-progress-bar {
   --global-theme-color: #2e7e46; /* SNES green, deepened for the cream bg */
   --global-hover-color: #2e7e46;
   --global-bg-color: #f8f7f3; /* off-white, closer to white */
-  --timeline-line: #2e7e46;
+  --timeline-line: #1c1c1d; /* timeline goes black in light mode */
   --link-color: #4a6ec9; /* SNES blue from the gradient — used for hyperlinks */
 }
 
 html[data-theme="dark"] {
   --global-theme-color: #54bf70; /* vivid SNES green for dark backgrounds */
   --global-hover-color: #54bf70;
-  --timeline-line: #54bf70;
+  --timeline-line: #ffffff; /* timeline goes white in dark mode */
   --link-color: #7c9bf0; /* SNES blue, lifted for dark backgrounds */
 }
 
@@ -154,7 +154,7 @@ html[data-theme="dark"] {
   height: 16px;
   border-radius: 50%;
   background: var(--global-bg-color);
-  border: 3px solid var(--global-theme-color);
+  border: 3px solid var(--timeline-line);
   box-sizing: border-box;
 }
 
@@ -297,11 +297,12 @@ html:has(#alex-home) {
   font-weight: 600;
   font-size: 0.95rem;
   line-height: 1;
-  color: var(--global-text-color);
+  color: var(--link-color); /* top nav links are blue */
   text-decoration: none;
 }
 #alex-home .navlinks a:hover {
-  color: var(--global-theme-color);
+  color: var(--link-color);
+  text-decoration: underline;
 }
 /* the light/dark toggle: plain inline icon, no outline, same row as the links */
 #alex-home .navlinks .theme-toggle {
@@ -358,7 +359,7 @@ html:has(#alex-home) {
 #alex-home .hero-tagline {
   margin: 0 0 0.45rem;
   font-size: 1.1rem;
-  color: var(--global-text-color-light);
+  color: var(--global-text-color);
 }
 #alex-home .hero-contact {
   margin: 0 0 0.6rem;
