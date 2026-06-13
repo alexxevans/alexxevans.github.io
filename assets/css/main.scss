@@ -78,16 +78,16 @@ progress[id="progress"]::-moz-progress-bar {
      - Dark pages:  magenta from the purple->pink span of the gradient
    ------------------------------------------------------------------------- */
 :root {
-  --global-theme-color: #3b82f6;
-  --global-hover-color: #3b82f6;
+  --global-theme-color: #5f67a3; /* faded SNES blue */
+  --global-hover-color: #5f67a3;
   --global-bg-color: #f3f2ed; /* slightly off-white, retro paper tone (a touch cooler) */
-  --timeline-line: #3b82f6;
+  --timeline-line: #5f67a3;
 }
 
 html[data-theme="dark"] {
-  --global-theme-color: #3b82f6;
-  --global-hover-color: #3b82f6;
-  --timeline-line: #3b82f6;
+  --global-theme-color: #9298cc; /* faded SNES blue, lighter for dark */
+  --global-hover-color: #9298cc;
+  --timeline-line: #9298cc;
 }
 
 /* ----------------------------------------------------------------------------
@@ -265,11 +265,11 @@ html:has(#alex-home) {
   height: 1px;
   background: linear-gradient(
     90deg,
-    #3b82f6 0%,
-    #6366f1 25%,
-    #a855f7 50%,
-    #ec4899 75%,
-    #ef4444 100%
+    #5f67a3 0%,
+    #847ba8 25%,
+    #cb7d70 50%,
+    #d9bf73 75%,
+    #7ba36f 100%
   );
   clip-path: inset(0 calc(100% - var(--scroll-progress, 0%)) 0 0);
 }
