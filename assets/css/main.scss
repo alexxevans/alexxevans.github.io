@@ -80,7 +80,7 @@ progress[id="progress"]::-moz-progress-bar {
 :root {
   --global-theme-color: #2e7e46; /* SNES green, deepened for the cream bg */
   --global-hover-color: #2e7e46;
-  --global-bg-color: #f3f2ed; /* slightly off-white, retro paper tone (a touch cooler) */
+  --global-bg-color: #f8f7f3; /* off-white, closer to white */
   --timeline-line: #2e7e46;
   --link-color: #4a6ec9; /* SNES blue from the gradient — used for hyperlinks */
 }
@@ -374,7 +374,7 @@ html:has(#alex-home) {
   color: var(--global-text-color);
 }
 #alex-home .hero-socials a:hover {
-  color: var(--global-theme-color);
+  color: var(--link-color); /* blue, matching the CV/content links */
 }
 /* sections */
 #alex-home .home-section {
