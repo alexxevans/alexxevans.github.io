@@ -18,9 +18,8 @@ latest_posts:
   <div class="topbar-inner">
     <a href="#top" class="topbar-name">Alex Evans</a>
     <nav class="navlinks">
-      <a href="#about">About</a>
+      <a href="#bio">Bio</a>
       <a href="#vitae">Vitæ</a>
-      <a href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
       <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
         <i class="fa-half-sun-moon toggle-system"></i>
         <i class="fa-solid fa-moon toggle-dark"></i>
@@ -36,9 +35,8 @@ latest_posts:
     <div class="hero-topline">
       <h1 class="hero-name">Alex Evans</h1>
       <nav class="navlinks">
-        <a href="#about">About</a>
+        <a href="#bio">Bio</a>
         <a href="#vitae">Vitæ</a>
-        <a href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
         <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
           <i class="fa-half-sun-moon toggle-system"></i>
           <i class="fa-solid fa-moon toggle-dark"></i>
@@ -55,8 +53,8 @@ latest_posts:
   </div>
 </header>
 
-<section id="about" class="home-section">
-  <h2>About</h2>
+<section id="bio" class="home-section">
+  <h2>Bio</h2>
   <p>I'm a DPhil candidate in Materials at the <strong>University of Oxford</strong>, where my research explores projection and energy-guided sampling for the <em>de novo</em> design of virus-like particles.</p>
   <p>My work sits at the intersection of <strong>generative AI and the physical sciences</strong> — applying diffusion models, normalising flows, and Bayesian inference to problems in physics, metrology, and structural design. Previously I completed an <strong>MRes in Machine Learning in the Physical Sciences</strong> (Distinction) at <strong>Imperial College London</strong>, modelling the quantum apparatus used in dark-matter and gravitational-wave research, and worked as a <strong>Scientist at the National Physical Laboratory (NPL)</strong>, where I built generative models to calibrate a European Space Agency satellite for the TRUTHS climate mission.</p>
   <p>I was a <strong>STEM for Britain 2025 finalist</strong>, presenting my research at the UK Parliament.</p>
@@ -64,6 +62,7 @@ latest_posts:
 
 <section id="vitae" class="home-section">
   <h2>Vitæ</h2>
+  <p class="cv-download"><a href="/assets/pdf/Alex_Evans_CV.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-download"></i> Download full CV (PDF)</a></p>
   <div class="timeline">
     <div class="timeline-item">
       <div class="timeline-content">

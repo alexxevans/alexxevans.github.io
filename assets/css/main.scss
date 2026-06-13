@@ -239,13 +239,25 @@ body:has(#alex-home) .post-header {
 body:has(#alex-home) .container.mt-5 {
   margin-top: 0 !important;
 }
-/* progress bar sits at the very top here (no navbar above it) */
+/* gradient scroll progress sits on the BOTTOM edge of the sticky bar (its
+   boundary), above the bar so it isn't covered */
 body:has(#alex-home) progress#progress,
 body:has(#alex-home) .progress-container {
-  top: 0;
+  top: calc(var(--topbar-h) - 1px);
+  z-index: 1040;
+  opacity: 0;
+  transition: opacity 0.28s ease;
+}
+/* show the gradient boundary only while the bar is shown */
+body:has(.topbar.visible) progress#progress,
+body:has(.topbar.visible) .progress-container {
+  opacity: 1;
 }
 html:has(#alex-home) {
+  --topbar-h: 2.75rem;
   scroll-behavior: smooth;
+  scrollbar-gutter: stable; /* reserve the scrollbar gutter so the fixed bar and
+                               the in-flow content share the same edges/center */
 }
 
 /* sticky bar — hidden until you scroll past the hero name */
@@ -256,8 +268,7 @@ html:has(#alex-home) {
   right: 0;
   z-index: 1030;
   background: var(--global-bg-color);
-  border-bottom: 1px solid var(--global-divider-color);
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  /* boundary is the gradient progress bar on the bottom edge (no border/shadow) */
   transform: translateY(-100%);
   opacity: 0;
   transition:
@@ -271,7 +282,8 @@ html:has(#alex-home) {
 .topbar-inner {
   max-width: var(--max-content-width, 930px);
   margin: 0 auto;
-  padding: 0.5rem 0; /* no side padding, so nav aligns with the 930px content box */
+  height: var(--topbar-h);
+  padding: 0; /* no side padding, so nav aligns with the 930px content box */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -416,6 +428,21 @@ html[data-theme-setting="light"] {
 #alex-home .home-section > h2 {
   margin-bottom: 1.1rem;
   font-weight: 700;
+}
+#alex-home .cv-download {
+  margin: -0.4rem 0 1.4rem;
+}
+#alex-home .cv-download a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+#alex-home .cv-download a:hover {
+  text-decoration: underline;
+}
+#alex-home .cv-download i {
+  margin-right: 0.4rem;
 }
 
 @media (max-width: 640px) {
