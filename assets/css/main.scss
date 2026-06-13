@@ -86,3 +86,136 @@ html[data-theme="dark"] {
   --global-theme-color: #c026d3;
   --global-hover-color: #c026d3;
 }
+
+/* ----------------------------------------------------------------------------
+   Bold the full name in the navbar brand (last name too, not just first).
+   Higher specificity than the `.font-weight-lighter` utility, so it wins.
+   ------------------------------------------------------------------------- */
+.navbar-brand.title {
+  font-weight: 700;
+}
+
+/* ----------------------------------------------------------------------------
+   Vertical timeline (homepage: education & experience).
+   Alternating cards on a central gradient line, with theme-accent dots.
+   Collapses to a single left-aligned column on small screens.
+   ------------------------------------------------------------------------- */
+.timeline {
+  position: relative;
+  max-width: 48rem;
+  margin: 1.5rem auto 0.5rem;
+  padding: 0;
+}
+
+/* central line — same gradient as the scroll progress bar */
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 3px;
+  margin-left: -1.5px;
+  border-radius: 3px;
+  background: linear-gradient(
+    180deg,
+    #3b82f6 0%,
+    #6366f1 25%,
+    #a855f7 50%,
+    #ec4899 75%,
+    #ef4444 100%
+  );
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding-top: 0.4rem;
+  padding-bottom: 1.6rem;
+  box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 50%;
+  text-align: left;
+  padding-left: 2.25rem;
+}
+
+.timeline-item:nth-child(even) {
+  left: 0;
+  text-align: right;
+  padding-right: 2.25rem;
+}
+
+/* dot on the central line */
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 0.55rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--global-bg-color);
+  border: 3px solid var(--global-theme-color);
+  box-sizing: border-box;
+}
+
+.timeline-item:nth-child(odd)::after {
+  left: -8px;
+}
+
+.timeline-item:nth-child(even)::after {
+  right: -8px;
+}
+
+.timeline-content {
+  display: inline-block;
+  text-align: left;
+  max-width: 100%;
+  padding: 0.6rem 0.9rem;
+  border-radius: 10px;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+.timeline-date {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--global-theme-color);
+}
+
+.timeline-title {
+  margin: 0.1rem 0 0.15rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--global-text-color);
+}
+
+.timeline-detail {
+  font-size: 0.9rem;
+  line-height: 1.35;
+  color: var(--global-text-color-light);
+}
+
+@media (max-width: 640px) {
+  .timeline::before {
+    left: 8px;
+  }
+  .timeline-item,
+  .timeline-item:nth-child(odd),
+  .timeline-item:nth-child(even) {
+    width: 100%;
+    left: 0;
+    text-align: left;
+    padding-left: 2.25rem;
+    padding-right: 0;
+  }
+  .timeline-item:nth-child(odd)::after,
+  .timeline-item:nth-child(even)::after {
+    left: 1px;
+    right: auto;
+  }
+}
