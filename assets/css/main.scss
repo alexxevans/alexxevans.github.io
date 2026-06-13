@@ -219,3 +219,179 @@ html[data-theme="dark"] {
     right: auto;
   }
 }
+
+/* ============================================================================
+   Single-page home (#alex-home): custom hero + scroll-aware sticky bar.
+   Scoped with :has() so it only affects the home page; the al-folio navbar
+   is hidden here and replaced by the custom bar.
+   ========================================================================= */
+
+/* hide al-folio chrome on the single-page home and reclaim the top spacing */
+body:has(#alex-home) #navbar {
+  display: none;
+}
+body:has(#alex-home).fixed-top-nav {
+  padding-top: 0;
+}
+body:has(#alex-home) .post-header {
+  display: none;
+}
+body:has(#alex-home) .container.mt-5 {
+  margin-top: 0 !important;
+}
+/* progress bar sits at the very top here (no navbar above it) */
+body:has(#alex-home) progress#progress,
+body:has(#alex-home) .progress-container {
+  top: 0;
+}
+html:has(#alex-home) {
+  scroll-behavior: smooth;
+}
+
+/* sticky bar — hidden until you scroll past the hero name */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background: var(--global-bg-color);
+  border-bottom: 1px solid var(--global-divider-color);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.06);
+  transform: translateY(-100%);
+  opacity: 0;
+  transition:
+    transform 0.28s ease,
+    opacity 0.28s ease;
+}
+.topbar.visible {
+  transform: translateY(0);
+  opacity: 1;
+}
+.topbar-inner {
+  max-width: var(--max-content-width, 930px);
+  margin: 0 auto;
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topbar-name {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--global-text-color);
+  text-decoration: none;
+}
+.topbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+.topbar-nav a,
+.topbar-toggle {
+  color: var(--global-text-color);
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+.topbar-nav a:hover,
+.topbar-toggle:hover {
+  color: var(--global-theme-color);
+}
+
+/* hero */
+#alex-home .hero {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 2.75rem 0 2rem;
+}
+#alex-home .hero-photo {
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.14);
+}
+#alex-home .hero-body {
+  flex: 1;
+  min-width: 16rem;
+}
+#alex-home .hero-name {
+  margin: 0 0 0.4rem;
+  font-size: 2.6rem;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--global-text-color);
+}
+#alex-home .hero-tagline {
+  margin: 0 0 0.45rem;
+  font-size: 1.1rem;
+  color: var(--global-text-color-light);
+}
+#alex-home .hero-contact {
+  margin: 0 0 0.6rem;
+  color: var(--global-text-color-light);
+}
+#alex-home .hero-socials {
+  display: flex;
+  gap: 0.95rem;
+  font-size: 1.3rem;
+  margin-bottom: 1.1rem;
+}
+#alex-home .hero-socials a {
+  color: var(--global-text-color);
+}
+#alex-home .hero-socials a:hover {
+  color: var(--global-theme-color);
+}
+#alex-home .hero-nav {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+#alex-home .hero-nav a {
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--global-divider-color);
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--global-text-color);
+  text-decoration: none;
+}
+#alex-home .hero-nav a:hover {
+  border-color: var(--global-theme-color);
+  color: var(--global-theme-color);
+}
+
+/* sections */
+#alex-home .home-section {
+  padding: 2rem 0 0.5rem;
+  scroll-margin-top: 4.5rem; /* so anchor jumps clear the sticky bar */
+}
+#alex-home .home-section > h2 {
+  margin-bottom: 1.1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  #alex-home .hero {
+    padding-top: 2rem;
+    gap: 1.25rem;
+  }
+  #alex-home .hero-photo {
+    width: 130px;
+    height: 130px;
+  }
+  #alex-home .hero-name {
+    font-size: 2rem;
+  }
+  .topbar-nav {
+    gap: 0.9rem;
+  }
+}
