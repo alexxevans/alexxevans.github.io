@@ -232,7 +232,7 @@ body:has(#alex-home) #navbar {
   display: none;
 }
 body:has(#alex-home).fixed-top-nav {
-  padding-top: 0;
+  padding-top: var(--topbar-h); /* clear the always-visible bar */
 }
 body:has(#alex-home) .post-header {
   display: none;
@@ -251,7 +251,7 @@ html:has(#alex-home) {
   scroll-behavior: smooth;
 }
 
-/* sticky bar — hidden until you scroll past the hero name */
+/* always-visible top bar */
 .topbar {
   position: fixed;
   top: 0;
@@ -259,11 +259,6 @@ html:has(#alex-home) {
   right: var(--scrollbar-width, 0px); /* end at the content edge (excl. scrollbar) so it lines up with the page */
   z-index: 1030;
   background: var(--global-bg-color);
-  transform: translateY(-100%);
-  opacity: 0;
-  transition:
-    transform 0.28s ease,
-    opacity 0.28s ease;
 }
 /* the gradient scroll-progress, drawn as the bar's bottom boundary, revealed L->R */
 .topbar::after {
@@ -282,10 +277,6 @@ html:has(#alex-home) {
     #ef4444 100%
   );
   clip-path: inset(0 calc(100% - var(--scroll-progress, 0%)) 0 0);
-}
-.topbar.visible {
-  transform: translateY(0);
-  opacity: 1;
 }
 .topbar-inner {
   max-width: var(--max-content-width, 930px);
@@ -348,7 +339,7 @@ html:has(#alex-home) {
   gap: 2rem;
   align-items: center;
   flex-wrap: wrap;
-  padding: 2.75rem 0 2rem;
+  padding: 1.5rem 0 2rem;
 }
 #alex-home .hero-photo {
   width: 190px;
@@ -361,17 +352,8 @@ html:has(#alex-home) {
   flex: 1;
   min-width: 16rem;
 }
-/* name + nav share one row: name left, nav right (mirrors the sticky bar) */
-#alex-home .hero-topline {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 0.5rem 1.5rem;
-  margin-bottom: 0.5rem;
-}
 #alex-home .hero-name {
-  margin: 0;
+  margin: 0 0 0.4rem;
   font-size: 2.6rem;
   font-weight: 800;
   line-height: 1.05;

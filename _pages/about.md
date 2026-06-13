@@ -31,18 +31,7 @@ latest_posts:
 <header id="top" class="hero">
   <img class="hero-photo" src="/assets/img/profile_pic.jpeg" alt="Alex Evans">
   <div class="hero-body">
-    <div class="hero-topline">
-      <h1 class="hero-name">Alex Evans</h1>
-      <nav class="navlinks">
-        <a href="#bio">Bio</a>
-        <a href="#vitae">Vitæ</a>
-        <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
-          <i class="fa-half-sun-moon toggle-system"></i>
-          <i class="fa-solid fa-moon toggle-dark"></i>
-          <i class="fa-solid fa-sun toggle-light"></i>
-        </button>
-      </nav>
-    </div>
+    <h1 class="hero-name">Alex Evans</h1>
     <p class="hero-tagline">DPhil candidate in Materials, University of Oxford — generative AI for the physical sciences.</p>
     <p class="hero-contact">a_ev.ans@icloud.com</p>
     <div class="hero-socials">
@@ -113,8 +102,7 @@ latest_posts:
 <script>
   (function () {
     var bar = document.getElementById("topbar");
-    var heroName = document.querySelector("#alex-home .hero-name");
-    if (!bar || !heroName) return;
+    if (!bar) return;
     var docEl = document.documentElement;
 
     function setScrollbarWidth() {
@@ -123,11 +111,6 @@ latest_posts:
     }
 
     function onScroll() {
-      if (heroName.getBoundingClientRect().bottom < 10) {
-        bar.classList.add("visible");
-      } else {
-        bar.classList.remove("visible");
-      }
       var max = docEl.scrollHeight - docEl.clientHeight;
       var pct = max > 0 ? (docEl.scrollTop / max) * 100 : 0;
       bar.style.setProperty("--scroll-progress", pct + "%");
