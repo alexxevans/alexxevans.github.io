@@ -80,6 +80,7 @@ progress[id="progress"]::-moz-progress-bar {
 :root {
   --global-theme-color: #3b82f6;
   --global-hover-color: #3b82f6;
+  --global-bg-color: #f4f1ea; /* slightly off-white, retro paper tone */
 }
 
 html[data-theme="dark"] {
@@ -239,25 +240,15 @@ body:has(#alex-home) .post-header {
 body:has(#alex-home) .container.mt-5 {
   margin-top: 0 !important;
 }
-/* gradient scroll progress sits on the BOTTOM edge of the sticky bar (its
-   boundary), above the bar so it isn't covered */
+/* al-folio's native progress bar is replaced by a gradient drawn on the sticky
+   bar's bottom edge (see .topbar::after) */
 body:has(#alex-home) progress#progress,
 body:has(#alex-home) .progress-container {
-  top: calc(var(--topbar-h) - 1px);
-  z-index: 1040;
-  opacity: 0;
-  transition: opacity 0.28s ease;
-}
-/* show the gradient boundary only while the bar is shown */
-body:has(.topbar.visible) progress#progress,
-body:has(.topbar.visible) .progress-container {
-  opacity: 1;
+  display: none;
 }
 html:has(#alex-home) {
   --topbar-h: 2.75rem;
   scroll-behavior: smooth;
-  scrollbar-gutter: stable; /* reserve the scrollbar gutter so the fixed bar and
-                               the in-flow content share the same edges/center */
 }
 
 /* sticky bar — hidden until you scroll past the hero name */
@@ -265,15 +256,32 @@ html:has(#alex-home) {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  right: var(--scrollbar-width, 0px); /* end at the content edge (excl. scrollbar) so it lines up with the page */
   z-index: 1030;
   background: var(--global-bg-color);
-  /* boundary is the gradient progress bar on the bottom edge (no border/shadow) */
   transform: translateY(-100%);
   opacity: 0;
   transition:
     transform 0.28s ease,
     opacity 0.28s ease;
+}
+/* the gradient scroll-progress, drawn as the bar's bottom boundary, revealed L->R */
+.topbar::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #3b82f6 0%,
+    #6366f1 25%,
+    #a855f7 50%,
+    #ec4899 75%,
+    #ef4444 100%
+  );
+  clip-path: inset(0 calc(100% - var(--scroll-progress, 0%)) 0 0);
 }
 .topbar.visible {
   transform: translateY(0);
@@ -318,6 +326,8 @@ html:has(#alex-home) {
 #alex-home .navlinks .theme-toggle {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  width: 1.4em; /* fixed, so the row doesn't shift as the icon changes per theme */
   padding: 0;
   background: none;
   border: none;
@@ -325,6 +335,14 @@ html:has(#alex-home) {
   line-height: 1;
   cursor: pointer;
   color: var(--global-text-color);
+}
+/* keep the three state icons the same size regardless of glyph */
+#alex-home .navlinks .theme-toggle i {
+  width: 1em;
+  height: 1em;
+  font-size: 1em;
+  line-height: 1;
+  text-align: center;
 }
 #alex-home .navlinks .theme-toggle:hover {
   color: var(--global-theme-color);
