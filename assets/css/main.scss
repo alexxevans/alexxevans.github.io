@@ -228,6 +228,13 @@ html[data-theme="dark"] {
 body:has(#alex-home) #navbar {
   display: none;
 }
+/* remove the footer entirely (and the body padding reserved for it) */
+body:has(#alex-home) footer {
+  display: none;
+}
+body:has(#alex-home) {
+  padding-bottom: 0;
+}
 body:has(#alex-home).fixed-top-nav {
   padding-top: var(--topbar-h); /* clear the always-visible bar */
 }
