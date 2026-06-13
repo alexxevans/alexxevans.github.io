@@ -85,9 +85,9 @@ progress[id="progress"]::-moz-progress-bar {
 }
 
 html[data-theme="dark"] {
-  --global-theme-color: #6e8edb; /* SNES blue, lifted for dark backgrounds */
-  --global-hover-color: #6e8edb;
-  --timeline-line: #6e8edb;
+  --global-theme-color: #5a82ec; /* vivid SNES blue for dark backgrounds */
+  --global-hover-color: #5a82ec;
+  --timeline-line: #5a82ec;
 }
 
 /* ----------------------------------------------------------------------------
