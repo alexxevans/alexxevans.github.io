@@ -9,16 +9,31 @@
     var bar = document.getElementById("topbar");
     var heroName = document.querySelector("#alex-home .hero-name");
     if (!bar || !heroName) return;
+    var docEl = document.documentElement;
+
+    function setScrollbarWidth() {
+      var sbw = window.innerWidth - docEl.clientWidth;
+      docEl.style.setProperty("--scrollbar-width", sbw + "px");
+    }
+
     function onScroll() {
       if (heroName.getBoundingClientRect().bottom < 10) {
         bar.classList.add("visible");
       } else {
         bar.classList.remove("visible");
       }
+      var max = docEl.scrollHeight - docEl.clientHeight;
+      var pct = max > 0 ? (docEl.scrollTop / max) * 100 : 0;
+      bar.style.setProperty("--scroll-progress", pct + "%");
     }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
+
+    setScrollbarWidth();
     onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", function () {
+      setScrollbarWidth();
+      onScroll();
+    });
 
     // Wire both theme toggles (hero + top bar) to al-folio's theme cycle (theme.js).
     if (typeof toggleThemeSetting === "function") {
