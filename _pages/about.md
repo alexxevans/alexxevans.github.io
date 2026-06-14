@@ -33,7 +33,6 @@ latest_posts:
   <div class="hero-body">
     <h1 class="hero-name">Alex Evans</h1>
     <p class="hero-tagline">DPhil candidate in Materials, University of Oxford</p>
-    <p class="hero-contact">alexander.evans@reuben.ox.ac.uk</p>
     <div class="hero-socials">
       <a href="mailto:alexander.evans@reuben.ox.ac.uk" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://github.com/alexxevans" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
