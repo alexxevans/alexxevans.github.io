@@ -14,21 +14,6 @@ latest_posts:
 
 <div id="alex-home">
 
-<div id="topbar" class="topbar">
-  <div class="topbar-inner">
-    <nav class="navlinks">
-      <a href="#bio">Bio</a>
-      <a href="#vitae">Vitæ</a>
-      <a href="#blog">Blog</a>
-      <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
-        <i class="fa-half-sun-moon toggle-system"></i>
-        <i class="fa-solid fa-moon toggle-dark"></i>
-        <i class="fa-solid fa-sun toggle-light"></i>
-      </button>
-    </nav>
-  </div>
-</div>
-
 <header id="top" class="hero">
   <img class="hero-photo" src="/assets/img/profile_pic.jpeg" alt="Alex Evans">
   <div class="hero-body">
@@ -108,11 +93,6 @@ latest_posts:
         <h3 class="home-post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
         <p class="home-post-meta">{{ post.date | date: "%A %-d %B %Y" }}</p>
         <div class="home-post-excerpt">{{ post.excerpt }}</div>
-        {% if post.thumbnail %}
-          <div class="home-post-figure">
-            {% include figure.liquid loading="eager" path=post.thumbnail class="img-fluid rounded z-depth-1" alt=post.thumbnail_alt caption=post.thumbnail_caption %}
-          </div>
-        {% endif %}
         <p class="home-post-more"><a href="{{ post.url | relative_url }}">Read more <i class="fa-solid fa-arrow-right-long"></i></a></p>
       </article>
     {% endfor %}
@@ -122,37 +102,3 @@ latest_posts:
 </section>
 
 </div>
-
-<script>
-  (function () {
-    var bar = document.getElementById("topbar");
-    if (!bar) return;
-    var docEl = document.documentElement;
-
-    function setScrollbarWidth() {
-      var sbw = window.innerWidth - docEl.clientWidth;
-      docEl.style.setProperty("--scrollbar-width", sbw + "px");
-    }
-
-    function onScroll() {
-      var max = docEl.scrollHeight - docEl.clientHeight;
-      var pct = max > 0 ? (docEl.scrollTop / max) * 100 : 0;
-      bar.style.setProperty("--scroll-progress", pct + "%");
-    }
-
-    setScrollbarWidth();
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", function () {
-      setScrollbarWidth();
-      onScroll();
-    });
-
-    // Wire both theme toggles (hero + top bar) to al-folio's theme cycle (theme.js).
-    if (typeof toggleThemeSetting === "function") {
-      document.querySelectorAll("#alex-home .theme-toggle").forEach(function (btn) {
-        btn.addEventListener("click", toggleThemeSetting);
-      });
-    }
-  })();
-</script>

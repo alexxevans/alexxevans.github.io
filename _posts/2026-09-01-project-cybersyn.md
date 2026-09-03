@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Project Cybersyn: a Bayesian socialist algocracy in 1970s Chile"
+title: "Project Cybersyn: Bayesian socialist algocracy in 1970s Chile"
 date: 2026-09-01 09:00:00+0100
 description: Allende's Chile ran a real-time cybernetic view of its economy out of telex machines and fibreglass chairs, on Bayesian forecasting published the same year the project began.
 tags: cybernetics statistics history

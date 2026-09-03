@@ -1,0 +1,85 @@
+{% comment %}
+  Local override of al-folio's header. The whole site uses the same slim bar as
+  the single-page home (#alex-home) rather than the theme navbar, so a post
+  reader page matches the front page.
+
+  On the home page the links stay as in-page anchors (smooth scroll); anywhere
+  else they point back at the home page's sections.
+
+  `#light-toggle` is kept, hidden: theme.js does
+  `document.getElementById("light-toggle").addEventListener(...)` with no null
+  check, so removing it throws on every page. The visible control is the
+  `.theme-toggle` button, wired below.
+
+  Search is still available on ctrl/cmd+k — <ninja-keys> is rendered by
+  scripts/search.liquid and binds its own hotkey, independent of this header.
+{% endcomment %}
+
+{% if page.permalink == '/' %}
+  {% assign home_prefix = '' %}
+{% else %}
+  {% assign home_prefix = '/' | relative_url %}
+{% endif %}
+
+<header>
+  <div id="topbar" class="topbar">
+    <div class="topbar-inner">
+      <nav class="navlinks">
+        <a href="{{ home_prefix }}#bio">Bio</a>
+        <a href="{{ home_prefix }}#vitae">Vitæ</a>
+        <a href="{{ home_prefix }}#blog">Blog</a>
+        {% if site.enable_darkmode %}
+          <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
+            <i class="fa-half-sun-moon toggle-system"></i>
+            <i class="fa-solid fa-moon toggle-dark"></i>
+            <i class="fa-solid fa-sun toggle-light"></i>
+          </button>
+          <button id="light-toggle" type="button" tabindex="-1" aria-hidden="true" style="display: none"></button>
+        {% endif %}
+      </nav>
+    </div>
+  </div>
+  {% if site.enable_progressbar %}
+    <progress id="progress" value="0">
+      <div class="progress-container">
+        <span class="progress-bar"></span>
+      </div>
+    </progress>
+  {% endif %}
+</header>
+
+<script>
+  (function () {
+    var bar = document.getElementById('topbar');
+    if (!bar) return;
+    var docEl = document.documentElement;
+
+    function setScrollbarWidth() {
+      var sbw = window.innerWidth - docEl.clientWidth;
+      docEl.style.setProperty('--scrollbar-width', sbw + 'px');
+    }
+
+    function onScroll() {
+      var max = docEl.scrollHeight - docEl.clientHeight;
+      var pct = max > 0 ? (docEl.scrollTop / max) * 100 : 0;
+      bar.style.setProperty('--scroll-progress', pct + '%');
+    }
+
+    setScrollbarWidth();
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', function () {
+      setScrollbarWidth();
+      onScroll();
+    });
+
+    // al-folio's theme cycle (theme.js); the hidden #light-toggle keeps that
+    // script happy, this wires the button people actually see.
+    document.addEventListener('DOMContentLoaded', function () {
+      if (typeof toggleThemeSetting !== 'function') return;
+      document.querySelectorAll('.topbar .theme-toggle').forEach(function (btn) {
+        btn.addEventListener('click', toggleThemeSetting);
+      });
+    });
+  })();
+</script>
