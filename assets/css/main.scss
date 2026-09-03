@@ -228,11 +228,11 @@ html[data-theme="dark"] {
 body:has(#alex-home) #navbar {
   display: none;
 }
-/* remove the footer entirely (and the body padding reserved for it) */
-body:has(#alex-home) footer {
+/* remove the footer entirely, site-wide (and the body padding reserved for it) */
+footer {
   display: none;
 }
-body:has(#alex-home) {
+body {
   padding-bottom: 0;
 }
 body.fixed-top-nav {
@@ -537,9 +537,22 @@ html[data-theme-setting="light"] {
   padding: 0 10px 0 0; /* matches .topbar-inner: nav sits ~10px inside the edge */
   align-items: center;
 }
-/* the home bar carries no wordmark, so neither does this one */
+/* the brand link only renders when page.permalink != '/' (al-folio's
+   header.liquid) -- i.e. on every page except the home page itself --
+   so it doubles as a "back to home" control. Collapse its rendered
+   name text to nothing and show only an arrow glyph. */
 #navbar .navbar-brand.title {
-  display: none;
+  font-size: 0;
+  line-height: var(--topbar-h);
+  color: var(--global-text-color);
+}
+#navbar .navbar-brand.title::before {
+  content: "\2190";
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+#navbar .navbar-brand.title:hover::before {
+  color: var(--link-color);
 }
 #navbar .navbar-nav {
   align-items: center;
@@ -563,25 +576,27 @@ html[data-theme-setting="light"] {
 #navbar.navbar-light .navbar-nav .nav-item.active > .nav-link:hover {
   color: var(--link-color);
 }
-/* search and theme buttons: same weight and hover as the links */
-#navbar #search-toggle .nav-link,
+/* theme button: same weight and hover as the links (search is disabled
+   via _config.yml, so its button never renders) */
 #navbar #light-toggle {
   padding: 0;
   font-size: 1.05rem;
   line-height: 1;
   color: var(--global-text-color);
 }
-#navbar #search-toggle .nav-link {
-  font-size: 0.95rem;
-  font-weight: 600;
-}
-#navbar #search-toggle:hover .nav-link,
 #navbar #light-toggle:hover {
   color: var(--link-color);
 }
 #navbar .toggle-container {
   display: flex;
   align-items: center;
+}
+/* the theme's automatic "about" link is always the first .nav-item in
+   .navbar-nav (al-folio header.liquid renders it unconditionally, with no
+   config gate) -- redundant now the brand arrow goes back to the home
+   page, and we want the bar to read exactly Bio / Vitae / Blog. */
+#navbar .navbar-nav > .nav-item:first-child {
+  display: none;
 }
 
 /* al-folio's native scroll progress, moved onto the bar's bottom edge and given
