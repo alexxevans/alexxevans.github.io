@@ -293,6 +293,10 @@ defaults:
       path: "assets"
     values:
       sitemap: false
+  - scope:
+      path: "capsid-catalogue"
+    values:
+      sitemap: false
 
 sass:
   style: compressed
