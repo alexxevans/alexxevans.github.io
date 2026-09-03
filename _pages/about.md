@@ -19,6 +19,7 @@ latest_posts:
     <nav class="navlinks">
       <a href="#bio">Bio</a>
       <a href="#vitae">Vitæ</a>
+      <a href="#blog">Blog</a>
       <button type="button" class="theme-toggle" title="Change theme" aria-label="Change color theme">
         <i class="fa-half-sun-moon toggle-system"></i>
         <i class="fa-solid fa-moon toggle-dark"></i>
@@ -32,7 +33,7 @@ latest_posts:
   <img class="hero-photo" src="/assets/img/profile_pic.jpeg" alt="Alex Evans">
   <div class="hero-body">
     <h1 class="hero-name">Alex Evans</h1>
-    <p class="hero-tagline">DPhil candidate in Materials, University of Oxford</p>
+    <p class="hero-tagline">DPhil candidate in Statistics and Materials, University of Oxford</p>
     <div class="hero-socials">
       <a href="mailto:alexander.evans@reuben.ox.ac.uk" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
       <a href="https://github.com/alexxevans" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
@@ -43,8 +44,9 @@ latest_posts:
 
 <section id="bio" class="home-section">
   <h2>Bio</h2>
-  <p>I'm a DPhil candidate in Materials at the <strong>University of Oxford</strong>, where my research explores projection and energy-guided sampling for the <em>de novo</em> design of virus-like particles.</p>
-  <p>My work sits at the intersection of <strong>generative AI and the physical sciences</strong> — applying diffusion models, normalising flows, and Bayesian inference to problems in physics, metrology, and structural design. Previously I completed an <strong>MRes in Machine Learning in the Physical Sciences</strong> (Distinction) at <strong>Imperial College London</strong>, modelling the quantum apparatus used in dark-matter and gravitational-wave research, and worked as a <strong>Scientist at the National Physical Laboratory (NPL)</strong>, where I built generative models to calibrate a European Space Agency satellite for the TRUTHS climate mission.</p>
+  <p>I'm a DPhil candidate in <strong>Statistics and Materials</strong> at the <strong>University of Oxford</strong>, and part of Charlotte Deane's <a href="https://opig.stats.ox.ac.uk/" target="_blank" rel="noopener">Oxford Protein Informatics Group</a>. My research asks which architecture a set of protein building blocks will assemble into, and how to run that question backwards: given the display geometry you want a vaccine scaffold to have, which building blocks do you need to get it?</p>
+  <p>Protein nanocages are currently designed by docking known building blocks into a symmetry chosen from a handful of precedents, so the architecture that comes out is something you observe rather than something you specify. I'm building a parameterisation of the full space of capsid architectures, and a probabilistic model over it, so that geometry becomes an input to design and polymorphism can be scored before anything is synthesised.</p>
+  <p>The wider work sits at the intersection of <strong>generative AI and the physical sciences</strong> — applying diffusion models, normalising flows, and Bayesian inference to problems in physics, metrology, and structural design. Previously I completed an <strong>MRes in Machine Learning in the Physical Sciences</strong> (Distinction) at <strong>Imperial College London</strong>, modelling the quantum apparatus used in dark-matter and gravitational-wave research, and worked as a <strong>Scientist at the National Physical Laboratory (NPL)</strong>, where I built generative models to calibrate a European Space Agency satellite for the TRUTHS climate mission.</p>
   <p>I was a <strong>STEM for Britain 2025 finalist</strong>, presenting my research at the UK Parliament.</p>
 </section>
 
@@ -56,7 +58,7 @@ latest_posts:
       <div class="timeline-content">
         <div class="timeline-date">2025 — Present</div>
         <div class="timeline-title">University of Oxford</div>
-        <div class="timeline-detail">DPhil in Materials · De Novo Protein Design</div>
+        <div class="timeline-detail">DPhil in Statistics and Materials · Oxford Protein Informatics Group</div>
       </div>
     </div>
     <div class="timeline-item">
@@ -95,6 +97,28 @@ latest_posts:
       </div>
     </div>
   </div>
+</section>
+
+<section id="blog" class="home-section">
+  <h2>Blog</h2>
+  {% assign home_posts = site.posts | where_exp: "p", "p.categories contains 'writing'" %}
+  {% if home_posts.size > 0 %}
+    {% for post in home_posts limit: 3 %}
+      <article class="home-post">
+        <h3 class="home-post-title"><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
+        <p class="home-post-meta">{{ post.date | date: "%A %-d %B %Y" }}</p>
+        <div class="home-post-excerpt">{{ post.excerpt }}</div>
+        {% if post.thumbnail %}
+          <div class="home-post-figure">
+            {% include figure.liquid loading="eager" path=post.thumbnail class="img-fluid rounded z-depth-1" alt=post.thumbnail_alt caption=post.thumbnail_caption %}
+          </div>
+        {% endif %}
+        <p class="home-post-more"><a href="{{ post.url | relative_url }}">Read more <i class="fa-solid fa-arrow-right-long"></i></a></p>
+      </article>
+    {% endfor %}
+  {% else %}
+    <p>Nothing here yet.</p>
+  {% endif %}
 </section>
 
 </div>

@@ -467,3 +467,70 @@ html[data-theme-setting="light"] {
     gap: 0.5rem;
   }
 }
+
+/* ----------------------------------------------------------------------------
+   Home page: Blog section (#blog). Each entry shows the post's excerpt — the
+   content up to its <!--more--> marker, which sits just after the first
+   figure — followed by a "Read more" link to the full post.
+   ------------------------------------------------------------------------- */
+#alex-home .home-post + .home-post {
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--global-divider-color);
+}
+#alex-home .home-post-title {
+  margin: 0 0 0.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.25;
+}
+#alex-home .home-post-title a {
+  color: var(--global-text-color);
+  text-decoration: none;
+}
+#alex-home .home-post-title a:hover {
+  color: var(--link-color);
+  text-decoration: none;
+}
+#alex-home .home-post-meta {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.02em;
+  color: var(--global-text-color-light);
+}
+#alex-home .home-post-excerpt > p:last-child {
+  margin-bottom: 0;
+}
+#alex-home .home-post-figure {
+  margin-top: 1.25rem;
+}
+#alex-home .home-post-figure img {
+  max-width: 100%;
+  height: auto;
+}
+#alex-home .home-post-figure figure {
+  margin: 0;
+}
+#alex-home .home-post-figure figcaption,
+#alex-home .home-post-figure .caption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: var(--global-text-color-light);
+}
+#alex-home .home-post-more {
+  margin: 1.1rem 0 0;
+}
+#alex-home .home-post-more a {
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--link-color);
+  text-decoration: none;
+}
+#alex-home .home-post-more a:hover {
+  text-decoration: underline;
+}
+#alex-home .home-post-more i {
+  margin-left: 0.3rem;
+  font-size: 0.85em;
+}
