@@ -225,7 +225,7 @@ html[data-theme="dark"] {
    ========================================================================= */
 
 /* hide al-folio chrome on the single-page home and reclaim the top spacing */
-#navbar {
+body:has(#alex-home) #navbar {
   display: none;
 }
 /* remove the footer entirely (and the body padding reserved for it) */
@@ -246,8 +246,8 @@ body:has(#alex-home) .container.mt-5 {
 }
 /* al-folio's native progress bar is replaced by a gradient drawn on the sticky
    bar's bottom edge (see .topbar::after) */
-progress#progress,
-.progress-container {
+body:has(#alex-home) progress#progress,
+body:has(#alex-home) .progress-container {
   display: none;
 }
 :root {
@@ -516,4 +516,110 @@ html[data-theme-setting="light"] {
 #alex-home .home-post-more i {
   margin-left: 0.3rem;
   font-size: 0.85em;
+}
+
+/* ----------------------------------------------------------------------------
+   Every page except the home page keeps al-folio's own navbar (the starter is
+   not allowed to own `_includes/`, see test/style_contract.js), so the navbar
+   is restyled here to read as the same slim bar the home page draws itself:
+   same height, same background, no brand, right-aligned plain-text links.
+   ------------------------------------------------------------------------- */
+#navbar.navbar {
+  min-height: var(--topbar-h);
+  padding: 0;
+  border-bottom: 0;
+  background-color: var(--global-bg-color);
+  opacity: 1;
+}
+#navbar .container {
+  max-width: var(--max-content-width, 930px);
+  height: var(--topbar-h);
+  padding: 0 10px 0 0; /* matches .topbar-inner: nav sits ~10px inside the edge */
+  align-items: center;
+}
+/* the home bar carries no wordmark, so neither does this one */
+#navbar .navbar-brand.title {
+  display: none;
+}
+#navbar .navbar-nav {
+  align-items: center;
+  gap: 1.25rem;
+}
+#navbar .navbar-nav .nav-item {
+  display: flex;
+  align-items: center;
+}
+/* plain text links, no active-state bolding or accent colour */
+#navbar.navbar-light .navbar-nav .nav-item .nav-link,
+#navbar.navbar-light .navbar-nav .nav-item.active > .nav-link {
+  padding: 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+  line-height: 1;
+  color: var(--global-text-color);
+  text-transform: none;
+}
+#navbar.navbar-light .navbar-nav .nav-item .nav-link:hover,
+#navbar.navbar-light .navbar-nav .nav-item.active > .nav-link:hover {
+  color: var(--link-color);
+}
+/* search and theme buttons: same weight and hover as the links */
+#navbar #search-toggle .nav-link,
+#navbar #light-toggle {
+  padding: 0;
+  font-size: 1.05rem;
+  line-height: 1;
+  color: var(--global-text-color);
+}
+#navbar #search-toggle .nav-link {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+#navbar #search-toggle:hover .nav-link,
+#navbar #light-toggle:hover {
+  color: var(--link-color);
+}
+#navbar .toggle-container {
+  display: flex;
+  align-items: center;
+}
+
+/* al-folio's native scroll progress, moved onto the bar's bottom edge and given
+   the same gradient the home bar draws with clip-path. Sizing the gradient to
+   the viewport makes it reveal left-to-right rather than compress. */
+progress#progress {
+  top: calc(var(--topbar-h) - 2px);
+  height: 2px;
+}
+progress#progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+progress#progress::-webkit-progress-value,
+progress#progress::-moz-progress-bar {
+  background-color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    #4a6ec9 0%,
+    #43a05a 38%,
+    #f1c33e 70%,
+    #e0574e 100%
+  );
+  background-size: 100vw 100%;
+  background-repeat: no-repeat;
+}
+.progress-container {
+  top: calc(var(--topbar-h) - 2px);
+  height: 2px;
+}
+.progress-bar {
+  background-color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    #4a6ec9 0%,
+    #43a05a 38%,
+    #f1c33e 70%,
+    #e0574e 100%
+  );
+  background-size: 100vw 100%;
+  background-repeat: no-repeat;
 }
