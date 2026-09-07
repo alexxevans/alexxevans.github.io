@@ -6,6 +6,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=STIX+Two+Math&display=swap">
 <title>Capsid Architecture Catalogue</title>
 <style>
   /* Palette, type and theme switching mirror alexxevans.github.io (al-folio):
@@ -101,8 +102,7 @@
   .dim{color:var(--muted)}
   .pill{display:inline-block;padding:1px 8px;border-radius:99px;background:var(--accent-soft);
         color:var(--accent);font-size:11px;font-family:var(--mono);font-weight:600}
-  .mathcal{font-style:italic;font-family:'STIX Two Math','Cambria Math',Georgia,serif;
-           font-weight:400;margin-right:1px}
+  .mathcal{font-family:'STIX Two Math',serif;font-style:normal;font-weight:400}
   .empty{padding:40px 16px;text-align:center;color:var(--muted)}
 
   section.detail{border-left:1px solid var(--line);padding:16px;overflow-y:auto;
@@ -205,7 +205,7 @@
     </div>
 
     <div class="fgroup">
-      <div class="flabel"><i class="mathcal">T</i></div>
+      <div class="flabel"><span class="mathcal">𝒯</span></div>
       <div class="chips" id="fam"></div>
       <div class="note">Group + capsomere environments.</div>
     </div>
@@ -266,7 +266,7 @@ const DEGREES = [3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 18, 20, 24, 25, 30], FAMIL
 const BY = Object.fromEntries(ROWS.map(r => [r.label, r]));
 
 const COLS = [
-  ['label','Label','s'], ['family','<i class="mathcal">T</i>','n'],
+  ['label','Label','s'], ['family','<span class="mathcal">𝒯</span>','n'],
   ['n_capsomeres','Capsomeres','n'], ['n_capsomere_environments','Environments','n'],
   ['n_interfaces','Interfaces','n'], ['n_interface_types','Interface types','n'],
   ['n_pores','Pores','n'], ['n_pore_types','Pore types','n'],
@@ -326,7 +326,7 @@ function fmt(r, key, type){
   if(v == null || v === '') return '<span class="dim">—</span>';
   if(type === 'b') return v ? '<span class="pill">yes</span>' : '<span class="dim">no</span>';
   if(key === 'label') return '<span class="mono">'+v+'</span>';
-  if(key === 'family') return '<span class="pill"><i class="mathcal">T</i>'+v+'</span>';
+  if(key === 'family') return '<span class="pill">'+v+'</span>';
   if(key === 'realised') return r.n_pdb
     ? '<span class="pill">yes &middot; '+r.n_pdb+'</span>'
     : '<span class="dim">no</span>';
